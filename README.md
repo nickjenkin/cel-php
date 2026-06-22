@@ -32,6 +32,7 @@ The current release supports:
 - Common functions and conversions such as `size`, `type`, `int`, `uint`, `double`, `string`, `bytes`, `duration`, and `timestamp`
 - String receiver functions such as `startsWith`, `endsWith`, `contains`, and `matches`
 - Extension libraries for `cel.bind`, `base64.encode` / `base64.decode`, `math.*`, `strings.quote`, `net.IP` / `net.CIDR`, and string receiver helpers such as `format`, `split`, `replace`, and `reverse`
+- CEL optional values, including `optional.of`, `optional.none`, optional select/index, optional list/map/message entries, and `optMap` / `optFlatMap`
 - CEL conformance support for the test-only `cel.block`, `cel.index`, `cel.iterVar`, and `cel.accuVar` block extension
 - Initial partial evaluation with unknown attributes, captured runtime errors, and residual expression strings
 - Custom global and receiver-style functions
