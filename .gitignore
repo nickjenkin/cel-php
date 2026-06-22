@@ -1,0 +1,8 @@
+/vendor/
+/.phpunit.result.cache
+/.phpbench/
+/crash-*.txt
+/minimized-*.txt
+/tools/fuzz/corpus/
+/var/fuzz-corpus/
+/var/fuzz-coverage/

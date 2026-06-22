@@ -1,0 +1,32 @@
+version: v2
+clean: true
+managed:
+  enabled: true
+  override:
+    - file_option: php_namespace
+      value: CEL\Generated\Expr
+      path: cel/expr
+    - file_option: php_metadata_namespace
+      value: GPBMetadata\CEL\Generated\Expr
+      path: cel/expr
+    - file_option: php_namespace
+      value: CEL\Generated\Expr\Conformance
+      path: cel/expr/conformance
+    - file_option: php_metadata_namespace
+      value: GPBMetadata\CEL\Generated\Expr\Conformance
+      path: cel/expr/conformance
+    - file_option: php_namespace
+      value: CEL\Generated\Expr\Conformance\Test
+      path: cel/expr/conformance/test
+    - file_option: php_metadata_namespace
+      value: GPBMetadata\CEL\Generated\Expr\Conformance\Test
+      path: cel/expr/conformance/test
+    - file_option: php_namespace
+      value: CEL\Generated\Expr\Conformance\Proto3
+      path: cel/expr/conformance/proto3
+    - file_option: php_metadata_namespace
+      value: GPBMetadata\CEL\Generated\Expr\Conformance\Proto3
+      path: cel/expr/conformance/proto3
+plugins:
+  - protoc_builtin: php
+    out: src/Generated

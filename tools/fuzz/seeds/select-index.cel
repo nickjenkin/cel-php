@@ -1,0 +1,1 @@
+has(request.user) && request.path.startsWith("/admin")

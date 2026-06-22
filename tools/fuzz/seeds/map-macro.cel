@@ -1,0 +1,1 @@
+{"a": 1, "b": 2}.transformMap(k, v, v > 1, v * 2)

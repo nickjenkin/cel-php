@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package cel.examples.policy;
+
+import "google/protobuf/timestamp.proto";
+
+option php_namespace = "CEL\\Generated\\Examples\\Policy";
+option php_metadata_namespace = "GPBMetadata\\CEL\\Generated\\Examples";
+
+enum Decision {
+  DECISION_UNSPECIFIED = 0;
+  ALLOW = 1;
+  DENY = 2;
+}
+
+message Request {
+  string user = 1;
+  int64 amount_cents = 2;
+  bool vip = 3;
+  repeated string scopes = 4;
+  map<string, string> labels = 5;
+  google.protobuf.Timestamp requested_at = 6;
+  Decision decision = 7;
+  optional string region = 8;
+
+  oneof subject {
+    string account_id = 9;
+    string group = 10;
+  }
+}

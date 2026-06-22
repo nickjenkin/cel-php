@@ -1,0 +1,55 @@
+{
+    "name": "nickjenkin/cel-php",
+    "description": "Common Expression Language for PHP",
+    "type": "library",
+    "license": "Apache-2.0",
+    "require": {
+        "php": "^8.2",
+        "ext-bcmath": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "google/protobuf": "^5.35"
+    },
+    "require-dev": {
+        "nikic/php-fuzzer": "^0.0.11",
+        "phpbench/phpbench": "^1.7",
+        "phpunit/phpunit": "^11.5"
+    },
+    "suggest": {
+        "ext-re2": "Enables EnvironmentBuilder::useRe2Regex() for RE2-backed CEL matches()."
+    },
+    "autoload": {
+        "psr-4": {
+            "CEL\\": "src/",
+            "CEL\\Generated\\": "src/Generated/CEL/Generated/",
+            "GPBMetadata\\CEL\\Generated\\": "src/Generated/GPBMetadata/CEL/Generated/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CEL\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Nick Jenkin"
+        }
+    ],
+    "scripts": {
+        "test": "phpunit",
+        "bench": "phpbench run --report=default",
+        "bench:quick": "phpbench run --iterations=1 --revs=1 --warmup=1 --progress=plain --report=aggregate",
+        "conformance": "php tools/run-conformance.php",
+        "fuzz": "php tools/fuzz/run.php fuzz",
+        "fuzz:coverage": "php tools/fuzz/run.php coverage",
+        "fuzz:single": "php-fuzzer run-single tools/fuzz/cel-target.php",
+        "proto:generate": [
+            "buf generate proto/cel-spec --template buf.gen.yaml --exclude-path proto/cel-spec/cel/expr/conformance/proto2",
+            "buf generate proto/examples --template buf.gen.examples.yaml"
+        ],
+        "proto:fixtures": "php tools/convert-fixtures.php"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
