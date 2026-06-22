@@ -35,7 +35,6 @@ The current release supports:
 - CEL conformance support for the test-only `cel.block`, `cel.index`, `cel.iterVar`, and `cel.accuVar` block extension
 - Initial partial evaluation with unknown attributes, captured runtime errors, and residual expression strings
 - Custom global and receiver-style functions
-- Generated CEL protobuf classes via Buf
 - Proto3 generated message construction and field selection for registered types
 - Proto3 optional presence, oneofs, repeated fields, maps, enums, wrappers, `Any`, `Struct`, `Value`, `ListValue`, timestamps, and durations
 
@@ -124,7 +123,7 @@ $result = $program->eval();
 
 ## Partial Evaluation
 
-Use `Program::evalPartial()` when an activation contains values that are intentionally unknown at evaluation time. Known short-circuits still return concrete values, runtime errors are captured as `CEL\ErrorValue`, and unresolved values are returned as `CEL\UnknownValue` with a minimized residual expression string for common CEL expression forms.
+Use `Program::evalPartial()` when some input values are not available yet. The partial result is either known, or it includes the unknown attributes and a residual CEL expression to evaluate later.
 
 ```php
 use CEL\Environment;
