@@ -8,7 +8,7 @@
         "ext-bcmath": "*",
         "ext-json": "*",
         "ext-mbstring": "*",
-        "google/protobuf": "^5.35"
+        "google/protobuf": "^4.33.6 || ^5.35"
     },
     "require-dev": {
         "nikic/php-fuzzer": "^0.0.11",
